@@ -1,4 +1,3 @@
-syntax:glob
 test/bm_*
 test/st_*
 test/tkfc_*
