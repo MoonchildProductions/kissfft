@@ -216,10 +216,11 @@ static void kf_bfly_generic(
         int m,
         int p
         )
+{
 #ifdef _OPENMP
 #pragma omp critical (bfly_generic)
+  {
 #endif
-{
     int u,k,q1,q;
     kiss_fft_cpx * twiddles = st->twiddles;
     kiss_fft_cpx t;
@@ -249,6 +250,9 @@ static void kf_bfly_generic(
         }
     }
     KISS_FFT_TMP_FREE(scratch);
+#ifdef _OPENMP
+  }
+#endif
 }
 
 static
